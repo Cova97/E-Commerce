@@ -1,10 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
-from products.models import Product
+from .models import Product
+from .forms import ProductCreate
 
 # Create your views here.
 class Products(View):
     def get(self, request):
-        products = Product.objects.all() #TOOD: haz la query para traer products
+        products = Product.objects.all() 
         context = {'products': products}
-        return render(request, 'products.html', context)
+        return render(request, 'products/products.html', context)
+
+class CreateProduct(View):
+    def get(self, request):
+        form = ProductCreate()
+        context = {'form': form}
+        return render(request, 'products/form.html', context)
+    
+    def post(self, request):
+        form = ProductCreate(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('products')
+        else:
+            print('ERROR')
+            print(form.errors)
+            context = {'form': form}
+            return render(request, 'products/products.html', context)

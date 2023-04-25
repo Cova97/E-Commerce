@@ -4,16 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>{% block tittle %} {% endblock %}</title>
 </head>
 <body>
-    <h1>productos legales</h1>
-    <div>
-        <ul>
-            {% for p in products %}
-            <li>{{p}}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% block content %} {% endblock %}
 </body>
 </html>
