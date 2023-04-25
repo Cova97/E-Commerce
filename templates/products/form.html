@@ -7,12 +7,15 @@ E-Comerce Productos
 {% block content %}
 
 <h1>Registro de nuevo producto</h1>
-<div>
+<div class="form-outline">
     <form method="post">
         {% csrf_token %}
         {{form}}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 </div>
 
 {% endblock %}
+
+
+
