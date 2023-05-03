@@ -11,24 +11,28 @@ E-Comerce Productos
     <a href="{% url 'create_product' %}" class="btn btn-info">Añadir producto</a>
 </div>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Descripcion</th>
-        <th>Marca</th>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Marca</th>
+        </tr>
+    </thead>
     {% for p in products %}
-    <tr>
-        <td>{{p.id}}</td>
-        <td>{{p.name}}</td>
-        <td>{{p.stock}}</td>
-        <td>{{p.price}}</td>
-        <td>{{p.description}}</td>
-        <td>{{p.brand}}</td>
-    </tr>
+    <tbody>
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.stock}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.brand}}</td>
+        </tr>
+    </tbody>
     {% endfor %}
 </table>
 
