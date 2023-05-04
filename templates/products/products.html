@@ -8,7 +8,7 @@ E-Comerce Productos
 
 <h1>Productos legales</h1>
 <div>
-    <a href="{% url 'create_product' %}" class="btn btn-info">Añadir producto</a>
+    <a href="{% url 'create_product' %}" class="btn btn-success">Añadir producto</a>
 </div>
 
 <table class="table">
@@ -20,6 +20,8 @@ E-Comerce Productos
             <th scope="col">Precio</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Marca</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
         </tr>
     </thead>
     {% for p in products %}
@@ -31,10 +33,13 @@ E-Comerce Productos
             <td>{{p.price}}</td>
             <td>{{p.description}}</td>
             <td>{{p.brand}}</td>
+            <td><a href="{% url 'update_product' p.id %}">Editar</a></td>
         </tr>
     </tbody>
     {% endfor %}
 </table>
+
+<a href="{% url 'home' %}" class="btn btn-info">Casa</a>
 
 {% endblock %}
 

@@ -26,3 +26,25 @@ class CreateProduct(View):
             print(form.errors)
             context = {'form': form}
             return render(request, 'products/products.html', context)
+
+class UpdateProduct(View):
+    def get(self, request, id):
+        product = Product.objects.get(id=id)
+        form = ProductCreate(instance=product)
+        context = {'form': form}
+        return render(request, 'products/update_form.html', context)
+    
+    def post(self, request, id):
+        product = Product.objects.get(id=id)
+        form = ProductCreate(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('products')
+        else:
+            print('ERROR')
+            print(form.errors)
+            context = {'form': form}
+            return render(request, 'products/form.html', context)
+
+
+
