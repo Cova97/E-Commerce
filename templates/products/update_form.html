@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block tittle %}
-E-Comerce Productos
+Update Product
 {% endblock %}
 
 {% block content %}
 
-<h1>Registro de nuevo producto</h1>
+<h1>Actualizar Producto</h1>
 <a href="{% url 'products' %}" class="btn btn-info">Producto</a>
 <div class="form-outline">
     <form method="post">
         {% csrf_token %}
         {{form}}
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-success">Actualizar</button>
     </form>
 </div>
 

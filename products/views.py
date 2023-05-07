@@ -44,7 +44,15 @@ class UpdateProduct(View):
             print('ERROR')
             print(form.errors)
             context = {'form': form}
-            return render(request, 'products/form.html', context)
+            return render(request, 'products/update_form.html', context)
 
+class DeleteProduct(View):
+    def get(self, request, id):
+        product = Product.objects.get(id=id)
+        context = {'product': product}
+        return render(request, 'products/delete_form.html', context)
 
-
+    def post(self, id):
+        product = Product.objects.get(id=id)
+        product.delete()
+        return redirect('products')

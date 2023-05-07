@@ -34,6 +34,7 @@ E-Comerce Productos
             <td>{{p.description}}</td>
             <td>{{p.brand}}</td>
             <td><a href="{% url 'update_product' p.id %}">Editar</a></td>
+            <td><a href="{% url 'delete_product' p.id %}">Eliminar</a></td>
         </tr>
     </tbody>
     {% endfor %}

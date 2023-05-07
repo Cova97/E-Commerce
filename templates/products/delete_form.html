@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block tittle %}
+Delete Product
+{% endblock %}
+
+{% block content %}
+
+<!-- products/delete_confirm.html -->
+
+<h1>Eliminar Producto</h1>
+
+<p>¿Estas seguro que deceas eliminar el producto?</p>
+
+<p><strong>Nombre:</strong> {{ product.name }}</p>
+<p><strong>Descripcion:</strong> {{ product.description }}</p>
+<p><strong>Precio:</strong> {{ product.price }}</p>
+
+<form method="post" action="{% url 'delete_product' product.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a href="{% url 'products' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+{% endblock %}
+
+
+
