@@ -52,7 +52,7 @@ class DeleteProduct(View):
         context = {'product': product}
         return render(request, 'products/delete_form.html', context)
 
-    def post(self, id):
+    def post(self, request, id):
         product = Product.objects.get(id=id)
         product.delete()
         return redirect('products')
