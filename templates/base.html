@@ -15,7 +15,34 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <title>{% block tittle %} {% endblock %}</title>
 </head>
+
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container" style="background-color: lightblue;">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}" style="font-size: 25px;">Home</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="{% url 'accounts' %}" class="btn btn-link px-3 me-2" style="font-size: 20px;">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
     {% block content %} {% endblock %}
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
