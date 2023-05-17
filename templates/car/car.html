@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block tittle %}
+Carrito
+{% endblock %}
+
+{% block content %}
+<h1>Carrito</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    {% for p in products %}
+    <tbody>
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.brand}}</td>
+            <td><a href="{% url 'cart_remove_product' p.id %}">Eliminar</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
