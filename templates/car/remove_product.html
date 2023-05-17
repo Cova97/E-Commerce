@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block tittle %}
+Carrito
+{% endblock %}
+
+{% block content %}
+<h1>hola estas en el carrito</h1>
+<h2>Remove Product from Cart</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to remove "{{ product.name }}" from your cart?</p>
+        <button type="submit">Remove from Cart</button>
+    </form>
+{% endblock %}
