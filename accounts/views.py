@@ -7,13 +7,16 @@ from .forms import RegistrationForm
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
+        print(form)
         if form.is_valid():
+            print("SIMON PERO NO QUIERO")
             form.save()
             messages.success(request, '¡Registro exitoso! Inicia sesión para continuar.')
             return redirect('login')
-    else:
-        form = RegistrationForm()
-
+        else:
+            print("NEL CARNAL")
+            return render(request, 'accounts/register.html', {'form': form})
+    form = RegistrationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
 
@@ -25,11 +28,11 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            return redirect('home')
         else:
             messages.error(request, 'Credenciales inválidas. Por favor, intenta nuevamente.')
 
-    return render(request, 'accounts/login.html')
+    return render(request, 'index.html')
 
 
 def user_logout(request):
@@ -38,5 +41,5 @@ def user_logout(request):
 
 
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    return render(request, 'products')
 

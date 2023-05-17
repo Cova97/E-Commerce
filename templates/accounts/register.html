@@ -3,6 +3,13 @@
 {% block content %}
     <h2>Registro de Usuario</h2>
         <form method="post">
+            {% if form.error %}
+                <ul>
+                {% for error in form.error %}
+                <li>{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Registrarse</button>
